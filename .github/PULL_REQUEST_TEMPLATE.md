@@ -1,0 +1,76 @@
+## Description
+
+[Describe what this PR does and why]
+
+**Related Issue:** Fixes #(issue_number) or Relates to #(issue_number)
+
+**Security Considerations:** [If applicable, e.g. channel auth, env/config handling]
+
+## Type of Change
+
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation
+- [ ] Refactoring
+
+## Component(s) Affected
+
+- [ ] Core / Backend (app, agents, config, providers, utils, local_models)
+- [ ] Console (frontend web UI)
+- [ ] Channels (DingTalk, Lark, QQ, Discord, iMessage, etc.)
+- [ ] Skills
+- [ ] CLI
+- [ ] Documentation (website)
+- [ ] Tests
+- [ ] CI/CD
+- [ ] Scripts / Deploy
+
+## Checklist
+
+- [ ] I ran `pre-commit run --all-files` locally and it passes
+- [ ] If pre-commit auto-fixed files, I committed those changes and reran checks
+- [ ] I ran tests locally (`pytest` or as relevant) and they pass
+- [ ] Documentation updated (if needed)
+- [ ] Ready for review
+
+### For Channel Changes (DingTalk, Lark, QQ, Console, etc.)
+
+- [ ] I ran `./scripts/check-channels.sh` (or `./scripts/check-channels.sh --changed`) and it passes
+- [ ] **Contract test** exists in `tests/contract/channels/test_<channel>_contract.py` (REQUIRED)
+- [ ] Contract test implements `create_instance()` with proper channel initialization
+- [ ] All 19 contract verification points pass (see `tests/contract/channels/__init__.py`)
+- [ ] **Optional**: Unit tests in `tests/unit/channels/test_<channel>.py` for complex internal logic
+
+## Testing
+
+[How to test these changes]
+
+## Evidence
+
+<!-- Required for external contributors. The CI "Real behavior proof" check
+     will block your PR if this section is missing or empty. Template
+     comments (like this one) do NOT count as evidence.
+
+     Keep the section headings "## Description" and "## Evidence" verbatim
+     — the CI check matches these headings by name. If you rename them,
+     your PR will be flagged as missing context even if you filled in the
+     content. -->
+
+Examples of valid evidence:
+- Terminal transcript of the test run (e.g. `pytest tests/unit/app/chats/ -q` output)
+- Screenshot of the Console UI showing the fix
+- CI artifact link
+- `pre-commit run --all-files` summary
+
+```bash
+pre-commit run --all-files
+# paste summary result
+
+pytest
+# paste summary result
+```
+
+## Additional Notes
+
+[Optional: any other context]
